@@ -1,0 +1,5 @@
+{
+	"globalip":{{ ipdata[0] }},
+	"datetime":{{ ipdata[1] }}
+}
+
