@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import os, requests, subprocess
+import os, requests, subprocess, boto3
 from jinja2 import Environment, FileSystemLoader
 from datetime import datetime
 from json import load
@@ -19,15 +19,16 @@ def render_template(template_filename, context):
     return TEMPLATE_ENVIRONMENT.get_template(template_filename).render(context)
 
 def create_json():
-    fname = "output.json"
+    #fname = "output.json"
     datalist = [globalip, datetimeip]
     context = {
         'ipdata': datalist
     }
+    print render_template('global-ip.json', context)
     #
-    with open(fname, 'w') as f:
-        ipdata = render_template('global-ip.json', context)
-        f.write(ipdata)
+    #with open(fname, 'w') as f:
+    #    ipdata = render_template('global-ip.json', context)
+    #    f.write(ipdata)
  
 def main():
     create_json()
