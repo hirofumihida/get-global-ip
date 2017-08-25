@@ -37,7 +37,7 @@ def create_json():
     obj = s3.Object(bucket_name,json_key)
     test_json = render_template('global-ip.json', context)
     r = obj.put(Body = json.dumps(test_json))
-    #print render_template('global-ip.json', context)
+    print render_template('global-ip.json', context)
  
 def main():
     create_json()
